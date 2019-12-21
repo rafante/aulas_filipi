@@ -2,4 +2,4 @@
 Aulas de programação Zero to Hero
 
 # Trello
-Já foi!
+Foi Sim!
