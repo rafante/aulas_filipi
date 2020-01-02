@@ -20,5 +20,5 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.CHAVE }}
-        source: "arquivo.txt,arquivo.txt"
+        source: "arquivo.txt"
         target: "/home/rafante2/teste"
