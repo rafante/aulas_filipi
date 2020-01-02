@@ -15,10 +15,4 @@ jobs:
     - name: Run a one-line script
       run: echo "Hello World!" > teste.txt
     - name: printa
-      run: echo ${{secrets.chave}}
-    - name: Run a multi-line script
-      run: cat ${{secrets.chave}} > id_rsa
-    - name: printa
-      run: echo ${{secrets.chave}}
-    - name: Teste
-      run: scp -i id_rsa teste.txt rafante2@35.232.98.141
+      run: cat ${{secrets.chave}}
