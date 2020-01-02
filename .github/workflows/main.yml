@@ -15,8 +15,14 @@ jobs:
     - name: Cria a chave rsa
       env:
         UMA_CHAVE: ${{secrets.CHAVE}}
-      run: | 
-        echo ${UMA_CHAVE} > id_rsa
-        cat id_rsa
-        echo arquivo_bobo.txt
-        scp -i id_rsa arquivo_bobo.txt rafante2@35.232.98.141:/home/rafante2/teste
+    - name: cria um arquivo
+      run: echo "Teste" > arquivo.txt
+    - name: Copia o arquivo
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "arquivo.txt,arquivo.txt"
+        target: "/home/rafante2/teste"
