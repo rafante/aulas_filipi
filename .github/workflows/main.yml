@@ -16,5 +16,7 @@ jobs:
       run: echo "Hello World!" > teste.txt
     - name: Run a multi-line script
       run: echo ${{secrets.chave}} > id_rsa
+    - name: printa
+      run: echo ${{secrets.chave}}
     - name: Teste
       run: scp -i id_rsa teste.txt rafante2@35.232.98.141
