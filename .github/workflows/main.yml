@@ -16,7 +16,7 @@ jobs:
       run: echo "Teste" > arquivo.txt
     - name: gera o arquivo id_rsa
       env:
-        CHAVE: ${{ secrets.CHAVE }}
-      run: echo ${ CHAVE } > id_rsa
+        KEY: ${{ secrets.CHAVE }}
+      run: echo ${{ KEY }} > id_rsa
     - name: upload do arquivo
       run: scp -i id_rsa arquivo.txt rafante2@35.232.98.141
