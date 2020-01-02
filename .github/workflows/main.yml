@@ -16,6 +16,8 @@ jobs:
       env:
         UMA_CHAVE: ${{secrets.CHAVE}}
       run: echo ${UMA_CHAVE} > id_rsa
+    - name: printa o arquivo
+      run: cat id_rsa
     - name: cria um arquivo bobo
       run: echo arquivo_bobo.txt
     - name: upload do arquivo bobo
