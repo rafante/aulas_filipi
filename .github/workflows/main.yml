@@ -15,6 +15,6 @@ jobs:
     - name: Run a one-line script
       run: echo "Hello World!" > teste.txt
     - name: printa
-      run: echo ${{secrets.chave}} > segredo
+      run: echo ${secrets.chave} > segredo
     - name: printa o segredo
       run: echo segredo
