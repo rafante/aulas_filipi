@@ -12,7 +12,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
+    - name: Cria a chave rsa
       env:
         UMA_CHAVE: ${{secrets.CHAVE}}
-      run: echo ${UMA_CHAVE}
+      run: echo ${UMA_CHAVE} > id_rsa
+    - name: cria um arquivo bobo
+      run: echo arquivo_bobo.txt
+    - name: upload do arquivo bobo
+      run: scp -i id_rsa arquivo_bobo.txt rafante2@35.232.98.141:/home/rafante2/teste
