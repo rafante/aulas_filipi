@@ -12,14 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Cria a chave rsa
+    - name: Cria arquivo a ser transferido
       run: echo "Teste" > arquivo.txt
-    - name: Copia o arquivo
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        port: ${{ secrets.PORT }}
-        source: "arquivo.txt,arquivo.txt"
-        target: "/home/rafante2/teste"
-        key: ${{ secrets.CHAVE }}
+    - name: gera o arquivo id_rsa
+      run: echo ${{ secrets.CHAVE }} > id_rsa
+    - name: upload do arquivo
+      run: scp -i id_rsa arquivo.txt rafante2@35.232.98.141
