@@ -13,8 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: echo "Hello World!" > teste.txt
-    - name: printa
-      run: echo ${secrets.chave} > segredo
-    - name: printa o segredo
-      run: echo segredo
+      env:
+        UMA_CHAVE: ${{secrets.CHAVE}}
+      run: echo ${UMA_CHAVE}
