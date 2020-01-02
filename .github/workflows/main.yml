@@ -15,6 +15,8 @@ jobs:
     - name: Cria arquivo a ser transferido
       run: echo "Teste" > arquivo.txt
     - name: gera o arquivo id_rsa
-      run: echo ${{ secrets.CHAVE }} > id_rsa
+      env:
+        CHAVE: ${{ secrets.CHAVE }}
+      run: echo ${ CHAVE } > id_rsa
     - name: upload do arquivo
       run: scp -i id_rsa arquivo.txt rafante2@35.232.98.141
