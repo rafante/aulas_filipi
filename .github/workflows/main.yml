@@ -19,7 +19,6 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
         key: ${{ secrets.CHAVE }}
         source: "arquivo.txt,arquivo.txt"
         target: "/home/rafante2/teste"
