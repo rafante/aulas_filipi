@@ -13,9 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Cria a chave rsa
-      env:
-        UMA_CHAVE: ${{secrets.CHAVE}}
-    - name: cria um arquivo
       run: echo "Teste" > arquivo.txt
     - name: Copia o arquivo
       uses: appleboy/scp-action@master
