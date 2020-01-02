@@ -15,8 +15,13 @@ jobs:
     - name: Cria arquivo a ser transferido
       run: echo "Teste" > arquivo.txt
     - name: gera o arquivo id_rsa
-      env:
-        KEY: ${{ secrets.CHAVE }}
-      run: echo ${{ KEY }} > id_rsa
-    - name: upload do arquivo
-      run: scp -i id_rsa arquivo.txt rafante2@35.232.98.141
+      run: echo ${{ secrets.CHAVE }} > id_rsa
+    - name: Copia o arquivo
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        key: ${{ secrets.CHAVE }}
+        source: "arquivo.txt,arquivo.txt"
+        target: "/home/rafante2/teste"
