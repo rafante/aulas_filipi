@@ -15,10 +15,8 @@ jobs:
     - name: Cria a chave rsa
       env:
         UMA_CHAVE: ${{secrets.CHAVE}}
-      run: echo ${UMA_CHAVE} > id_rsa
-    - name: printa o arquivo
-      run: cat id_rsa
-    - name: cria um arquivo bobo
-      run: echo arquivo_bobo.txt
-    - name: upload do arquivo bobo
-      run: scp -i id_rsa arquivo_bobo.txt rafante2@35.232.98.141:/home/rafante2/teste
+      run: | 
+        echo ${UMA_CHAVE} > id_rsa
+        cat id_rsa
+        echo arquivo_bobo.txt
+        scp -i id_rsa arquivo_bobo.txt rafante2@35.232.98.141:/home/rafante2/teste
